@@ -7,11 +7,6 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-
-    dogeCoin: { 
-        type: Number,
-        required: true
-    },
     
     email: {
         type: String,
