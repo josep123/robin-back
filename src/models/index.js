@@ -2,4 +2,4 @@ const {User} = require('./user');
 
 
 
-module.exports = {User, Transfer}
+module.exports = {User}

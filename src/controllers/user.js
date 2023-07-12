@@ -1,5 +1,5 @@
 const {Router} = require('express');
-const {User} = require('../..');
+const {User} = require('../models');
 const userRouter = Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -11,7 +11,7 @@ const jwt = require('jsonwebtoken');
 userRouter.post('/register', async (req, res) => {
 
     const saltRounds = 10;
-    const { name, dogeCoin, email, password} = req.body;
+    const { name, email, password} = req.body;
     const hashPass = bcrypt.hashSync(password, saltRounds);
     const user = new User({name: name, email: email, password: hashPass});
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {expiresIn: '10h' });
